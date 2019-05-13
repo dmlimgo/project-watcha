@@ -39,3 +39,8 @@ def login(request):
     signin_form = AuthenticationForm()
     context = {'form': signin_form}
     return render(request, 'accounts/forms.html', context)
+
+@login_required
+def logout(request):
+    user_logout(request)
+    return redirect('accounts:list')

@@ -7,11 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Watcha</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'watcha/bootstrap-4.3.1-dist/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/forms.css' %}">
+    <script src="{% static 'watcha/bootstrap-4.3.1-dist/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
-    base.html
+    <nav class="test-box">
+        <ul style="list-style-type: none; margin:0; padding:0; ">
+            {% if user.is_authenticated %}
+            {{ user.username }}님 환영합니다
+            <li style="display:inline-block; list-style-type: none;"><a href="{% url 'accounts:logout' %}">로그아웃</a></li>
+            {% else %}
+            <li style="display:inline-block; list-style-type: none;"><a href="{% url 'accounts:login' %}">로그인</a></li>
+            <li style="display:inline-block; list-style-type: none;"><a href="{% url 'accounts:signup' %}">회원가입</a></li>
+            {% endif %}
+        </ul>
+    </nav>
     {% block body %}
     {% endblock %}
     
