@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts.apps.AccountsConfig',
     'rest_framework_swagger',
     'rest_framework',
-    'accounts',
     'movies',
 ]
 
@@ -125,3 +125,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'watcha', 'static')    
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
