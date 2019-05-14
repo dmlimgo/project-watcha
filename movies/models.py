@@ -23,8 +23,8 @@ class Movie(models.Model):
     crew = models.ManyToManyField(Crew, related_name='movie')
     similar_movie = models.ManyToManyField('self', blank=True)
 
-class Rating(models.Model):
-    comment = models.TextField(blank=True)
-    score = models.IntegerField()
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+# class Rating(models.Model):
+#     comment = models.TextField(blank=True)
+#     score = models.IntegerField()
+#     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

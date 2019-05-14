@@ -1,7 +1,7 @@
 .body-box {
     display: flex;
     flex-direction: column;
-    background-color: #FAFAFA;
+    background-color: #2a2e31;
     position: relative;
     min-height: 100vh;
 }
@@ -32,11 +32,9 @@ a, a:hover, a:visited, a:active {
     text-decoration: none;
     cursor: pointer;
 }
-
 .notyet {
     text-align: center;
 }
-
 .test-box {
     border: 1px solid #c9c9c9;
     border-radius: 5px;
