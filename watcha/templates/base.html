@@ -6,31 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Watcha</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'watcha/bootstrap-4.3.1-dist/css/bootstrap.min.css' %}">
+    <script src="{% static 'watcha/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'watcha/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/forms.css' %}">
-    <script src="{% static 'watcha/bootstrap-4.3.1-dist/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/profile.css' %}">
 </head>
 <body>
-    <nav class="test-box">
-        <ul style="list-style-type: none; margin:0; padding:0; ">
-            {% if user.is_authenticated %}
-            {{ user.username }}님 환영합니다
-            <li style="display:inline-block; list-style-type: none;"><a href="{% url 'accounts:logout' %}">로그아웃</a></li>
-            {% else %}
-            <li style="display:inline-block; list-style-type: none;"><a href="{% url 'accounts:login' %}">로그인</a></li>
-            <li style="display:inline-block; list-style-type: none;"><a href="{% url 'accounts:signup' %}">회원가입</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% block body %}
-    {% endblock %}
+    <div class="body-box">
+        <div class="nav-box">
+            <div class="nav-fixed-box">
+                <div class="nav-flex-box">
+                    <div class="logo-box">
+                        <a href="{% url 'accounts:list' %}">
+                            <img src="{% static 'watcha/image/apple_logo_white.png' %}" style="height: 30px; width: 30px;">
+                        </a>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span style="color: rgba(255,255,255,0.3);">{{ user.username }}</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu">
+                            <a href="{% url 'accounts:list' %}"><button class="dropdown-item custom-dropdown-item" type="button">내 정보 보기</button></a>
+                            <a href="{% url 'accounts:logout' %}"><button class="dropdown-item custom-dropdown-item" type="button">로그아웃</button></a>
+                        </div>
+                    </div>
+                    {% else %}
+                        {% if request.resolver_match.url_name != 'signup' and request.resolver_match.url_name != 'login' %}
+                        <a href="{% url 'accounts:login' %}"><div class="start-button">시작하기</div></a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="main-box">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
     
     {% block script %}
     {% endblock %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
