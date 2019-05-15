@@ -19,8 +19,8 @@ class Movie(models.Model):
     poster_path = models.CharField(max_length=200)
     overview = models.TextField()
     genre = models.ManyToManyField(Genre, related_name='movie')
-    cast = models.ManyToManyField(Cast, related_name='movie')
     crew = models.ManyToManyField(Crew, related_name='movie')
+    cast = models.ManyToManyField(Cast, related_name='movie')
     similar_movie = models.ManyToManyField('self', blank=True)
 
 # class Rating(models.Model):

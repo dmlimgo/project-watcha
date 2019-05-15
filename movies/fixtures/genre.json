@@ -1,0 +1,135 @@
+[
+    {
+        "pk": 28,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "액션"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "모험"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "애니메이션"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "코미디"
+        }
+    },
+    {
+        "pk": 80,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "범죄"
+        }
+    },
+    {
+        "pk": 99,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "다큐멘터리"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "드라마"
+        }
+    },
+    {
+        "pk": 10751,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "가족"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "판타지"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "역사"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "공포"
+        }
+    },
+    {
+        "pk": 10402,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "음악"
+        }
+    },
+    {
+        "pk": 9648,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "미스터리"
+        }
+    },
+    {
+        "pk": 10749,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "로맨스"
+        }
+    },
+    {
+        "pk": 878,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "SF"
+        }
+    },
+    {
+        "pk": 10770,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "TV 영화"
+        }
+    },
+    {
+        "pk": 53,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "스릴러"
+        }
+    },
+    {
+        "pk": 10752,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "전쟁"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "movies.Genre",
+        "fields": {
+            "type": "서부"
+        }
+    }
+]
