@@ -1,0 +1,37 @@
+[
+    {
+        "pk": 1,
+        "model": "movies.Cast",
+        "fields": {
+            "name": "Li-Tung Chang"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "movies.Cast",
+        "fields": {
+            "name": "Micheál Richardson"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "movies.Cast",
+        "fields": {
+            "name": "So Okuno"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "movies.Cast",
+        "fields": {
+            "name": "Gaku Oshida"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "movies.Cast",
+        "fields": {
+            "name": "Atsuhiro Inukai"
+        }
+    }
+]

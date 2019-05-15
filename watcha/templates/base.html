@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="{% static 'watcha/bootstrap-4.3.1-dist/css/bootstrap.min.css' %}">
     <script src="{% static 'watcha/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'watcha/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <link rel="stylesheet" href="{% static 'watcha/swiper/css/swiper.min.css' %}"></script>
+    <script src="{% static 'watcha/swiper/js/swiper.min.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/forms.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'watcha/css/movielist.css' %}">
 </head>
 <body>
     <div class="body-box">
@@ -24,12 +28,13 @@
                         </a>
                     </div>
                     {% if user.is_authenticated %}
+
                     <div class="btn-group">
                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span style="color: rgba(255,255,255,0.3);">{{ user.username }}</span>
+                            <span style="color: rgba(255,255,255,0.7);">{{ user.username }}</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu">
-                            <a href="{% url 'accounts:list' %}"><button class="dropdown-item custom-dropdown-item" type="button">내 정보 보기</button></a>
+                            <a href="{% url 'accounts:profile' %}"><button class="dropdown-item custom-dropdown-item" type="button">내 정보 보기</button></a>
                             <a href="{% url 'accounts:logout' %}"><button class="dropdown-item custom-dropdown-item" type="button">로그아웃</button></a>
                         </div>
                     </div>
@@ -49,5 +54,6 @@
     
     {% block script %}
     {% endblock %}
+
 </body>
 </html>
