@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.conf import settings
 
-from .forms import UserCustomCreationForm, AuthenticationForm
+from .forms import UserCustomCreationForm, AuthenticationForm, ProfileForm
+from .models import Profile
 
 # Create your views here.
 def list(request):
@@ -44,3 +45,22 @@ def login(request):
 def logout(request):
     user_logout(request)
     return redirect('accounts:list')
+
+@login_required
+def profile(request):
+    return render(request, 'accounts/profile.html')
+
+@login_required
+def profile_update(request):
+    try :
+        request.user.profile
+    except:
+        Profile.objects.create(user=request.user)
+    if request.method == 'POST':
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if profile_form.is_valid():
+            profile_form.save()
+            return redirect('accounts:profile')
+    profile_form = ProfileForm(instance=request.user.profile)
+    context = {'profile_form': profile_form}
+    return render(request, 'accounts/profile_update.html', context)

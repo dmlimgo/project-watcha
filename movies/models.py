@@ -6,6 +6,9 @@ from django.contrib.auth.models import AbstractUser
 class Genre(models.Model):
     type = models.CharField(max_length=20)
 
+    def __repr__(self):
+        return f'{self.pk}: {self.type}'
+
 class Cast(models.Model):
     name = models.CharField(max_length=50)
 
@@ -23,8 +26,8 @@ class Movie(models.Model):
     cast = models.ManyToManyField(Cast, related_name='movie')
     similar_movie = models.ManyToManyField('self', blank=True)
 
-# class Rating(models.Model):
-#     comment = models.TextField(blank=True)
-#     score = models.IntegerField()
-#     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+class Rating(models.Model):
+    comment = models.TextField(blank=True)
+    score = models.IntegerField()
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

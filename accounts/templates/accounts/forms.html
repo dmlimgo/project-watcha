@@ -21,7 +21,10 @@
                 <div style="height:15px;"></div>
                 {% endif %}
                 {% csrf_token %}
+                <span style="color:#fff; font-size: 14px;">
                 {{ form }}
+                </span>
+
                 <div class="form-submit">
                     {% if request.resolver_match.url_name == 'signup' %}
                     <input type="submit" value="가입" class="button">
@@ -29,15 +32,6 @@
                     <input type="submit" value="로그인" class="button">
                     {% endif %}
                 </div>
-                {% if request.resolver_match.url_name == 'signup' %}
-                <div class="form-explain">
-                    가입하면 Watcha의 <b>약관</b>, <b>데이터 정책</b> 및 <b>쿠키 정책</b>에 동의하게 됩니다.
-                </div>
-                {% else %}
-                <div class="form-explain">
-                    비밀번호를 잊으셨나요?
-                </div>
-                {% endif %}
             </div>
         </form>
         {% if request.resolver_match.url_name == 'login' %}

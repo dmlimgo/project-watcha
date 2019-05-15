@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="form-container">
+    <div class="form-inner">
+        <form method="POST" class="form-box" enctype="multipart/form-data">
+            <div class="form-box-container">
+                <div style="height:15px;"></div>
+                {% csrf_token %}
+                {{ profile_form }}
+                <div class="form-submit">
+                    <input type="submit" value="수정하기" class="button">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

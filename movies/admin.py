@@ -1,11 +1,35 @@
 from django.contrib import admin
 
+<<<<<<< HEAD
 from .models import Movie, Genre, Cast, Crew #, Rating
 # from .models import Movie
+=======
+# from .models import Movie, Genre, Cast, Crew, Rating
+from .models import Movie, Genre, Cast, Crew
+>>>>>>> e7e63c363bed5432a6f218c4d745bf65165c660b
 # Register your models here.
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'release_date', 'runtime', 'poster_path', 'overview']
+    list_display = ['id', 'title', 'release_date', 'runtime', 'poster_path', 'overview', 'get_genres', 'get_crews', 'get_casts', 'get_similar']
 
+<<<<<<< HEAD
+=======
+    def get_genres(self, obj):
+        if obj.genre: return list(obj.genre.values_list())
+        else: return 'None'
+
+    def get_crews(self, obj):
+        if obj.crew: return list(obj.crew.values_list())
+        else: return 'None'
+    
+    def get_casts(self, obj):
+        if obj.cast: return list(obj.cast.values_list())
+        else: return 'None'
+
+    def get_similar(self, obj):
+        if obj.similar_movie: return list(obj.similar_movie.values_list('id', flat=True))
+        else: return 'None'
+
+>>>>>>> e7e63c363bed5432a6f218c4d745bf65165c660b
 class GenreAdmin(admin.ModelAdmin):
     list_display = ['id', 'type']
     
