@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="movie-box">
+    <div class="moviedetail-box">
+        <div class="box1">
+            <div class="poster-box">
+                <img src="{{ movie.poster_path }}" style="height: 100%; width: 100%;">
+            </div>
+            <div class="info-box">
+                <div class="title">
+                    {{movie.title}}
+                </div>
+                <div class="users">
+                    <div class="rating">
+                        <span class="subject">회원점수</span>
+                        
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="release">
+                        <span class="subject">개봉일</span>
+                        <span class="content">{{movie.release_date}}</span>
+                    </div>
+                    <div class="runtime">
+                        <span class="subject">상영시간</span>
+                        <span class="content">{{movie.runtime}}</span>
+                    </div>
+                    <div class="genre">
+                        <span class="subject">장르</span>
+                        <span class="content">
+                        {% for genre in movie.genre.all %}
+                            {% if forloop.first %}
+                                {{ genre.type }}
+                            {% else %}
+                                <span>/ </span>{{ genre.type }}
+                            {% endif %}
+                        {% endfor %}
+                        </span>
+                    </div>
+                </div>
+                <div class="overview">
+                    <span class="subject">개요</span>
+                    <span class="content">
+                        {{movie.overview}}
+                    </span>
+                </div>
+            </div>   
+        </div>
+    </div>
+    
+    <div class="rating">
+        {% for rating in ratings %}
+            <li style="color:red;">
+                <p>{{ rating.user }}님의 평</p>
+                <p>comment : {{ rating.comment }}</p>
+                <p>score : {{ rating.score }}</p>
+                <form action="{% url 'movies:delete_rating' movie.pk rating.pk %}" method="POST" style="margin-bottom: 10px;">
+                    {% csrf_token %}
+                    <input type="submit" value="평점 삭제">
+                </form>
+            </li>
+        {% endfor %}
+    
+        {% if user.is_authenticated %}
+        <h1>평점 작성</h1>
+        <form action="{% url 'movies:new_rating' movie.pk %}" method="POST">
+            {% csrf_token %}
+            영화 감상평 : <input type="text" name="comment">
+            영화 평점 : <input type="number" name="score" min="0" max="5" step="0.5">
+            <input type="submit" value="작성하기">
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

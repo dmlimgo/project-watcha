@@ -1,18 +1,11 @@
 from django.contrib import admin
 
-<<<<<<< HEAD
-from .models import Movie, Genre, Cast, Crew #, Rating
-# from .models import Movie
-=======
-# from .models import Movie, Genre, Cast, Crew, Rating
-from .models import Movie, Genre, Cast, Crew
->>>>>>> e7e63c363bed5432a6f218c4d745bf65165c660b
+from .models import Movie, Genre, Cast, Crew, Rating
+
 # Register your models here.
 class MovieAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'release_date', 'runtime', 'poster_path', 'overview', 'get_genres', 'get_crews', 'get_casts', 'get_similar']
 
-<<<<<<< HEAD
-=======
     def get_genres(self, obj):
         if obj.genre: return list(obj.genre.values_list())
         else: return 'None'
@@ -29,7 +22,6 @@ class MovieAdmin(admin.ModelAdmin):
         if obj.similar_movie: return list(obj.similar_movie.values_list('id', flat=True))
         else: return 'None'
 
->>>>>>> e7e63c363bed5432a6f218c4d745bf65165c660b
 class GenreAdmin(admin.ModelAdmin):
     list_display = ['id', 'type']
     
@@ -39,11 +31,11 @@ class CastAdmin(admin.ModelAdmin):
 class CrewAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     
-# class RatingAdmin(admin.ModelAdmin):
-#     list_display = ['id', 'comment', 'score', 'movie', 'user']
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ['id', 'comment', 'score', 'movie', 'user']
     
 admin.site.register(Movie, MovieAdmin)
 admin.site.register(Genre, GenreAdmin)
 admin.site.register(Cast, CastAdmin)
 admin.site.register(Crew, CrewAdmin)
-# admin.site.register(Rating, RatingAdmin)
+admin.site.register(Rating, RatingAdmin)

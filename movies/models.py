@@ -20,6 +20,8 @@ class Movie(models.Model):
     release_date = models.CharField(max_length=30)
     runtime = models.IntegerField()
     poster_path = models.CharField(max_length=200)
+    backdrop_path = models.CharField(max_length=200)
+    video_path = models.CharField(max_length=200)
     overview = models.TextField()
     genre = models.ManyToManyField(Genre, related_name='movie')
     crew = models.ManyToManyField(Crew, related_name='movie')

@@ -9,6 +9,8 @@ from django.conf import settings
 from .forms import UserCustomCreationForm, AuthenticationForm, ProfileForm
 from .models import Profile
 
+from django.http import JsonResponse, HttpResponseBadRequest
+
 # Create your views here.
 def list(request):
     User = get_user_model()
@@ -48,7 +50,9 @@ def logout(request):
 
 @login_required
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    user = get_user_model()
+    context = {'user_info': user}
+    return render(request, 'accounts/profile.html', context)
 
 @login_required
 def profile_update(request):

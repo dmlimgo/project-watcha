@@ -1,134 +1,153 @@
 [
     {
-        "pk": 28,
+        "pk": 1,
         "model": "movies.Genre",
         "fields": {
+            "id": 1,
             "type": "액션"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 2,
+            "type": "모험"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 3,
+            "type": "애니메이션"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 4,
+            "type": "코미디"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 5,
+            "type": "범죄"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 6,
+            "type": "다큐멘터리"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 7,
+            "type": "드라마"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 8,
+            "type": "가족"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 9,
+            "type": "판타지"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 10,
+            "type": "역사"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "movies.Genre",
+        "fields": {
+            "id": 11,
+            "type": "공포"
         }
     },
     {
         "pk": 12,
         "model": "movies.Genre",
         "fields": {
-            "type": "모험"
+            "id": 12,
+            "type": "음악"
         }
     },
     {
-        "pk": 16,
+        "pk": 13,
         "model": "movies.Genre",
         "fields": {
-            "type": "애니메이션"
-        }
-    },
-    {
-        "pk": 35,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "코미디"
-        }
-    },
-    {
-        "pk": 80,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "범죄"
-        }
-    },
-    {
-        "pk": 99,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "다큐멘터리"
-        }
-    },
-    {
-        "pk": 18,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "드라마"
-        }
-    },
-    {
-        "pk": 10751,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "가족"
+            "id": 13,
+            "type": "미스터리"
         }
     },
     {
         "pk": 14,
         "model": "movies.Genre",
         "fields": {
-            "type": "판타지"
-        }
-    },
-    {
-        "pk": 36,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "역사"
-        }
-    },
-    {
-        "pk": 27,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "공포"
-        }
-    },
-    {
-        "pk": 10402,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "음악"
-        }
-    },
-    {
-        "pk": 9648,
-        "model": "movies.Genre",
-        "fields": {
-            "type": "미스터리"
-        }
-    },
-    {
-        "pk": 10749,
-        "model": "movies.Genre",
-        "fields": {
+            "id": 14,
             "type": "로맨스"
         }
     },
     {
-        "pk": 878,
+        "pk": 15,
         "model": "movies.Genre",
         "fields": {
+            "id": 15,
             "type": "SF"
         }
     },
     {
-        "pk": 10770,
+        "pk": 16,
         "model": "movies.Genre",
         "fields": {
+            "id": 16,
             "type": "TV 영화"
         }
     },
     {
-        "pk": 53,
+        "pk": 17,
         "model": "movies.Genre",
         "fields": {
+            "id": 17,
             "type": "스릴러"
         }
     },
     {
-        "pk": 10752,
+        "pk": 18,
         "model": "movies.Genre",
         "fields": {
+            "id": 18,
             "type": "전쟁"
         }
     },
     {
-        "pk": 37,
+        "pk": 19,
         "model": "movies.Genre",
         "fields": {
+            "id": 19,
             "type": "서부"
         }
     }

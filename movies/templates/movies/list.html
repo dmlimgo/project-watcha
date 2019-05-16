@@ -1,44 +1,22 @@
 {% extends 'base.html' %}
 {% block body %}    
-    <!-- <div class="moviemain-box">
-    <h3>영화 목록</h3>
-        <div class="movies-box">
-        {% for movie in movies %}
-            <div class="eachmovie-box">
-                <div class="photo-box">
-                    <img src="{{ movie.poster_path }}">
-                </div>
-            </div>
-        {% endfor %}
-        </div> 
-    </div> -->
     <div class="moviemain-box">
+        
+        <form action="{% url 'movies:search' %}" method="POST" style="margin-bottom: 10px;">
+            {% csrf_token %}
+            검색할 영화명 : <input type="text" name="search">
+            <input type="submit" value="검색하기">
+        </form>
+        
         <h3>영화 목록</h3>
         <div class="movies-box">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide eachmovie-box" style="width: 240px;">Slide 1</div>
-                <div class="swiper-slide eachmovie-box">Slide 2</div>
-                <div class="swiper-slide eachmovie-box">Slide 3</div>
-                <div class="swiper-slide eachmovie-box">Slide 4</div>
-                <div class="swiper-slide eachmovie-box">Slide 5</div>
-                <div class="swiper-slide eachmovie-box">Slide 6</div>
-                <div class="swiper-slide eachmovie-box">Slide 7</div>
-                <div class="swiper-slide eachmovie-box">Slide 8</div>
-                <div class="swiper-slide eachmovie-box">Slide 9</div>
-                <div class="swiper-slide eachmovie-box">Slide 10</div>
+            {% for movie in movies %}
+            <a href="{% url 'movies:detail' movie.pk %}">
+            <div class="eachmovie-box">
+                {{ movie.title }}                
             </div>
+            </a>
+            {% endfor %}
         </div>
     </div>
-      
-{% endblock %}
-
-{% block script %}
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper('.movies-box', {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        freeMode: true
-    });
-</script>
 {% endblock %}

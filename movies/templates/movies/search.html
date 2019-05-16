@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    {% if results %}
+
+        <p>검색하신 '{{ keyword }}' 의 결과는 다음과 같습니다.</p><br>
+
+        <ul>
+        {% for result in results %}
+                <li><a href="{% url 'movies:detail' result.pk %}">{{ result.title }}</a></li><br>
+        {% endfor %}
+        </ul>
+        
+    {% else  %}
+        <p>입력한 단어의 검색 결과는 없습니다.</p>
+    {% endif %}
+{% endblock %}
