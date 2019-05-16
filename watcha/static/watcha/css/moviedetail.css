@@ -14,13 +14,13 @@
     flex-wrap: wrap;
     margin: 0 auto;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .poster-box {
     display: flex;
     height: 450px;
     width: 300px;
-    margin-right: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .title {
     display: flex;
@@ -37,6 +37,9 @@
     flex-direction: column;
     font-size: 16px;
     font-weight: 500;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px;
 }
 .info {
     display: flex;

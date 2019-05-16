@@ -52,7 +52,7 @@
             </div>   
         </div>
     </div>
-    
+
     {% if user.is_authenticated %}
     <h1>평점 작성</h1>
     <form action="{% url 'movies:new_rating' movie.pk %}" method="POST">

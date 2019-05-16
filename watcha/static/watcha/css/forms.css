@@ -2,14 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 270px;
     background-color: #2a2e33;
 }
 .form-inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 150px;
     max-width: 270px;
     width: 100%;
 }

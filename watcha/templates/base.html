@@ -31,12 +31,14 @@
                                 <img src="{% static 'watcha/image/apple_logo_white.png' %}" style="height: 30px; width: 30px;">
                             </a>
                         </div>
+                        {% if request.resolver_match.url_name == 'list' %}
                         <form action="{% url 'movies:search' %}" method="POST" class="search">
                             {% csrf_token %}
                             <input type="text" name="search" class="search-input" placeholder="제목으로 검색">
                         </form>
+                        {% endif %}
+                        
                         {% if user.is_authenticated %}
-    
                         <div class="btn-group">
                             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span style="color: rgba(255,255,255,0.7);">{{ user.username }}</span>

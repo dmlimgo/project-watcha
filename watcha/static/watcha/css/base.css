@@ -68,6 +68,7 @@ a, a:hover, a:visited, a:active {
     border-radius: 20px;
     padding: 5px 17px;
     font-weight: 300;
+    min-width: 100px;
 }
 .main-box {
     display: flex;
@@ -93,7 +94,7 @@ a, a:hover, a:visited, a:active {
 .search-input {
     display: block;
     margin: 0 auto;
-    width: 50%;
+    width: 30%;
     height: 34px;
     line-height: 18px;
     background-color: #3d4347;

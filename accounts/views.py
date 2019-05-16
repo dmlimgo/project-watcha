@@ -20,13 +20,13 @@ def list(request):
     
 def signup(request):
     if request.user.is_authenticated:
-        return redirect('accounts:list')
+        return redirect('movies:list')
     if request.method == "POST":
         user_form = UserCustomCreationForm(request.POST)
         if user_form.is_valid():
             user = user_form.save()
             user_login(request, user)
-            return redirect('accounts:list')
+            return redirect('movies:list')
     else:    
         user_form = UserCustomCreationForm()
     context = {'form': user_form}
@@ -38,7 +38,7 @@ def login(request):
         signin_form = AuthenticationForm(request, request.POST)
         if signin_form.is_valid():
             user_login(request, signin_form.get_user())
-            return redirect('accounts:list')
+            return redirect('movies:list')
     signin_form = AuthenticationForm()
     context = {'form': signin_form}
     return render(request, 'accounts/forms.html', context)

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}    
     <div class="moviemain-box">
-        <h3>영화 목록</h3>
+        <!--<h3>영화 목록</h3>-->
         <div class="movies-box">
             {% for movie in movies %}
             <a href="{% url 'movies:detail' movie.pk %}">
