@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}    
     <div class="moviemain-box">
-        
-        <form action="{% url 'movies:search' %}" method="POST" class="search">
-            {% csrf_token %}
-            <input type="text" name="search">
-        </form>
-        
         <h3>영화 목록</h3>
         <div class="movies-box">
             {% for movie in movies %}
