@@ -12,7 +12,7 @@
         <div class="movies-box">
             {% for movie in movies %}
             <a href="{% url 'movies:detail' movie.pk %}">
-            <div class="eachmovie-box" style="background-image: url('{{ movie.backdrop_path }}')">
+            <div class="eachmovie-box" style="background-image: url('{{ movie.backdrop_path }}');">
                 {{ movie.title }}                
             </div>
             </a>
