@@ -49,9 +49,9 @@ def logout(request):
     return redirect('accounts:list')
 
 @login_required
-def profile(request, user_pk):
-    user = get_user_model().objects.get(pk=user_pk)
-    context = {'user_info': user}
+def profile(request):
+    user = get_user_model()
+    context = {'user': user}
     return render(request, 'accounts/profile.html', context)
 
 @login_required

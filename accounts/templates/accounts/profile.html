@@ -14,9 +14,9 @@
             <div class="pf-header-info-nkname-box">
                 <h1 class="pf-header-info-nkname">
                 {% if user.profile.nickname %}
-                    {{ user_info.profile.nickname }}
+                    {{ user.profile.nickname }}
                 {% else %}
-                    {{ user_info.username }}
+                    {{ user.username }}
                 {% endif %}
                 </h1>
                 <a href="{% url 'accounts:profile_update' %}" class="pf-header-info-edit">
@@ -43,10 +43,10 @@
             </ul>
             <div class="pf-header-info-discription-box">
                 <h1 class="pf-header-info-discription">
-                    {{ user_info.username }}
+                    {{ user.username }}
                 </h1>
                 <span>
-                    {{ user_info.profile.introduction }}
+                    {{ user.profile.introduction }}
                 </span>
             </div>
         </section>
