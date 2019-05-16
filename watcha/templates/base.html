@@ -24,32 +24,32 @@
     <div class="body-box">
         <div class="nav-box">
             <div class="nav-fixed-box">
-            <nav class="nav-color-box">
-                <div class="nav-flex-box">
-                    <div class="logo-box">
-                        <a href="{% url 'movies:list' %}">
-                            <img src="{% static 'watcha/image/apple_logo_white.png' %}" style="height: 30px; width: 30px;">
-                        </a>
-                    </div>
-                    {% if user.is_authenticated %}
-
-                    <div class="btn-group">
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span style="color: rgba(255,255,255,0.7);">{{ user.username }}</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu">
-                            <a href="{% url 'accounts:profile' %}"><button class="dropdown-item custom-dropdown-item" type="button">내 정보 보기</button></a>
-                            <a href="{% url 'accounts:logout' %}"><button class="dropdown-item custom-dropdown-item" type="button">로그아웃</button></a>
+                <nav class="nav-color-box">
+                    <div class="nav-flex-box">
+                        <div class="logo-box">
+                            <a href="{% url 'movies:list' %}">
+                                <img src="{% static 'watcha/image/apple_logo_white.png' %}" style="height: 30px; width: 30px;">
+                            </a>
                         </div>
-                    </div>
-                    {% else %}
-                        {% if request.resolver_match.url_name != 'signup' and request.resolver_match.url_name != 'login' %}
-                        <a href="{% url 'accounts:login' %}"><div class="start-button">시작하기</div></a>
+                        {% if user.is_authenticated %}
+    
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span style="color: rgba(255,255,255,0.7);">{{ user.username }}</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu">
+                                <a href="{% url 'accounts:profile' %}"><button class="dropdown-item custom-dropdown-item" type="button">내 정보 보기</button></a>
+                                <a href="{% url 'accounts:logout' %}"><button class="dropdown-item custom-dropdown-item" type="button">로그아웃</button></a>
+                            </div>
+                        </div>
+                        {% else %}
+                            {% if request.resolver_match.url_name != 'signup' and request.resolver_match.url_name != 'login' %}
+                            <a href="{% url 'accounts:login' %}"><div class="start-button">시작하기</div></a>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                </div>
+                    </div>
+                </nav>
             </div>
-            </nav>
         </div>
         <div class="main-box">
             {% block body %}
