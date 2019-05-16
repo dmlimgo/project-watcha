@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
+{% load crispy_forms_tags %}
 <div class="movie-box">
     <div class="moviedetail-box">
         <div class="box1">
@@ -49,28 +50,43 @@
         </div>
     </div>
     
+    {% if user.is_authenticated %}
+    <h1>평점 작성</h1>
+    <form action="{% url 'movies:new_rating' movie.pk %}" method="POST">
+        {% csrf_token %}
+        {{ rating_form|crispy }}
+        {# 영화 감상평 : <input type="text" name="comment"> #}
+        {# 영화 평점 : <input type="number" name="score" min="0" max="5" step="1"> #}
+        <button type="submit" class="btn btn-info">작성하기</button>
+    </form>
+    {% endif %}
+    <br>
+    {% for rating in ratings %}
     <div class="rating">
-        {% for rating in ratings %}
-            <li style="color:red;">
-                <p>{{ rating.user }}님의 평</p>
-                <p>comment : {{ rating.comment }}</p>
-                <p>score : {{ rating.score }}</p>
-                <form action="{% url 'movies:delete_rating' movie.pk rating.pk %}" method="POST" style="margin-bottom: 10px;">
-                    {% csrf_token %}
-                    <input type="submit" value="평점 삭제">
-                </form>
-            </li>
-        {% endfor %}
-    
-        {% if user.is_authenticated %}
-        <h1>평점 작성</h1>
-        <form action="{% url 'movies:new_rating' movie.pk %}" method="POST">
-            {% csrf_token %}
-            영화 감상평 : <input type="text" name="comment">
-            영화 평점 : <input type="number" name="score" min="0" max="5" step="0.5">
-            <input type="submit" value="작성하기">
-        </form>
+        <b style="display: inline-block">{{ rating.user }}<b>
+        <span> {{ rating.comment }}</span>
+        
+        {% if rating.score == 5 %} {# 5 빨강 #}
+            <button type="button" class="btn btn-danger">{{ rating.score }}</button>
+            
+        {% elif rating.score == 4 %} {# 4 노랑 #}
+            <button type="button" class="btn btn-warning">{{ rating.score }}</button>
+            
+        {% elif rating.score == 3 %} {# 3 초록 #}
+            <button type="button" class="btn btn-success">{{ rating.score }}</button>
+            
+        {% else %} {# 0, 1, 2 검정 #}
+            <button type="button" class="btn btn-dark">{{ rating.score }}</button>
+            
         {% endif %}
+            
+        <form action="{% url 'movies:delete_rating' movie.pk rating.pk %}" method="POST" style="margin-bottom: 10px; display: inline-block">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-light">삭제</button>
+        </form>
     </div>
+    {% endfor %}
+    
+    
 </div>
 {% endblock %}

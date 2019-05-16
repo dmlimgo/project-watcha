@@ -30,6 +30,6 @@ class Movie(models.Model):
 
 class Rating(models.Model):
     comment = models.TextField(blank=True)
-    score = models.IntegerField()
+    score = models.IntegerField(choices=list(zip(range(1, 6), range(1, 6))), unique=True)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

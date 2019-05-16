@@ -5,14 +5,14 @@ from django.conf import settings # user를 사용하기 위해서?
 class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
-        fields = ['comment', 'score', 'movie', 'user']
+        exclude = ['movie', 'user']
         
-        widgets = {
-            'comment': forms.TextInput(attrs={'placeholder':'영화 감상평을 입력하세요.', 'class':'comment'}),
-            'score': forms.IntegerInput(attrs={'placeholder':'영화 평점을 입력하세요.', 'class':'score'}),
-        }
-        
-        error_messages = {
-            'comment': {'required':'영화 감상평을 입력하세요.'},
-            'score': {'required':'영화 평점을 입력하세요.'},
-        }
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
+        super(RatingForm, self).__init__(*args, **kwargs)
+        for key, field in self.fields.items():
+            field.help_text=''
+        self.fields['comment'].label='감상평'
+        self.fields['score'].label='평점'
+        self.fields['comment'].widget.attrs.update({'placeholder': '', 'class': 'input-box'})
+        self.fields['score'].widget.attrs.update({'placeholder': '', 'class': 'input-box'})
