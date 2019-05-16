@@ -31,6 +31,10 @@
                                 <img src="{% static 'watcha/image/apple_logo_white.png' %}" style="height: 30px; width: 30px;">
                             </a>
                         </div>
+                        <form action="{% url 'movies:search' %}" method="POST" class="search">
+                            {% csrf_token %}
+                            <input type="text" name="search" class="search-input" placeholder="제목으로 검색">
+                        </form>
                         {% if user.is_authenticated %}
     
                         <div class="btn-group">
@@ -49,18 +53,6 @@
                         {% endif %}
                     </div>
                 </nav>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <form action="{% url 'movies:search' %}" method="POST" class="search">
-                                    {% csrf_token %}
-                                    <input type="text" name="search" class="search-input" placeholder="제목으로 검색">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="main-box">
