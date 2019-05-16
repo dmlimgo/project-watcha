@@ -14,7 +14,11 @@
                 </div>
                 <div class="users">
                     <div class="rating">
-                        <span class="subject">회원점수 {{movie.score_avg}}</span>
+                        {% if movie.score_avg %}
+                            <span class="subject">회원점수 {{movie.score_avg}}</span>
+                        {% else %}
+                            <span class="subject">회원점수 ---</span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="info">
