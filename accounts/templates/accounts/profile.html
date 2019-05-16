@@ -14,9 +14,9 @@
             <div class="pf-header-info-nkname-box">
                 <h1 class="pf-header-info-nkname">
                 {% if user.profile.nickname %}
-                    {{ user.profile.nickname }}
+                    {{ user_info.profile.nickname }}
                 {% else %}
-                    {{ user.username }}
+                    {{ user_info.username }}
                 {% endif %}
                 </h1>
                 <a href="{% url 'accounts:profile_update' %}" class="pf-header-info-edit">
@@ -30,23 +30,23 @@
             <ul class="pf-header-info-nav-box">
                 <li class="pf-header-info-li-box">
                     평가한 영화
-                    <span class="fw-600">{{ user.post_set.count }}</span>
+                    <span class="fw-600">{{ user_info.post_set.count }}</span>
                 </li>
                 <li class="pf-header-info-li-box">
                     팔로워
-                    <span class="fw-600">{{ user.followers.count }}</span>
+                    <span class="fw-600">{{ user_info.to_user.all.count }}</span>
                 </li>
                 <li class="pf-header-info-li-box">
                     팔로우
-                    <span class="fw-600">{{ user.followings.count }}</span>
+                    <span class="fw-600">{{ user_info.from_user.all.count }}</span>
                 </li>
             </ul>
             <div class="pf-header-info-discription-box">
                 <h1 class="pf-header-info-discription">
-                    {{ user.username }}
+                    {{ user_info.username }}
                 </h1>
                 <span>
-                    {{ user.profile.introduction }}
+                    {{ user_info.profile.introduction }}
                 </span>
             </div>
         </section>

@@ -43,3 +43,7 @@
 /*.eachmovie-box:first-child {*/
 /*    margin-left: 0;*/
 /*}*/
+.search {
+    margin-bottom: 10px;
+    width: 100%;
+}

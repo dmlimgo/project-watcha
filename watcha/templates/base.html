@@ -24,6 +24,7 @@
     <div class="body-box">
         <div class="nav-box">
             <div class="nav-fixed-box">
+            <nav class="nav-color-box">
                 <div class="nav-flex-box">
                     <div class="logo-box">
                         <a href="{% url 'movies:list' %}">
@@ -48,6 +49,7 @@
                     {% endif %}
                 </div>
             </div>
+            </nav>
         </div>
         <div class="main-box">
             {% block body %}

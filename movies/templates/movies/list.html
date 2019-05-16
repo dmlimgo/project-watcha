@@ -2,10 +2,9 @@
 {% block body %}    
     <div class="moviemain-box">
         
-        <form action="{% url 'movies:search' %}" method="POST" style="margin-bottom: 10px;">
+        <form action="{% url 'movies:search' %}" method="POST" class="search">
             {% csrf_token %}
-            검색할 영화명 : <input type="text" name="search">
-            <input type="submit" value="검색하기">
+            <input type="text" name="search">
         </form>
         
         <h3>영화 목록</h3>

@@ -49,8 +49,8 @@ def logout(request):
     return redirect('accounts:list')
 
 @login_required
-def profile(request):
-    user = get_user_model()
+def profile(request, user_pk):
+    user = get_user_model().objects.get(pk=user_pk)
     context = {'user_info': user}
     return render(request, 'accounts/profile.html', context)
 
@@ -68,3 +68,25 @@ def profile_update(request):
     profile_form = ProfileForm(instance=request.user.profile)
     context = {'profile_form': profile_form}
     return render(request, 'accounts/profile_update.html', context)
+    
+@login_required
+def follow(request, user_pk):
+    if request.is_ajax():
+        User = get_user_model()
+        user = get_object_or_404(User, pk=user_pk)
+        if request.user in user.from_user.all():
+            user.from_user.remove(request.user)
+            is_follow = False
+        else:
+            user.from_user.add(request.user)
+            is_follow = True
+        return JsonResponse(
+            {
+                'is_follow': is_follow,
+                'from_user_count': request.user.from_user_count(),
+                'to_user_count': request.user.to_user_count()
+            }
+        )
+    else:
+        return HttpResponseBadRequest
+            

@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
-list.html
-{% for user in users %}
-{{ user.username }}
-{{ user.email }}
-<br>
-{% endfor %}
+    <div>
+        <b style="color:red;"><p>list.html</p></b>
+    </div>
+    <br>
+    <div>
+    {% for user in users %}
+        <p>{{ user.username }}</p>
+        <p>{{ user.email }}</p>
+    <br>
+    {% endfor %}
+    </div>
 {% endblock %}
